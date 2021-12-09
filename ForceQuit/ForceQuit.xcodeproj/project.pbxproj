@@ -16,6 +16,8 @@
 		04A48803276206F400A5DB92 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04A48805276206F400A5DB92 /* Localizable.strings */; };
 		04A488072762074C00A5DB92 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A488062762074C00A5DB92 /* Localized.swift */; };
 		04A4880927620BBE00A5DB92 /* NibLoadable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4880827620BBE00A5DB92 /* NibLoadable+Extension.swift */; };
+		04A4880C2762482600A5DB92 /* MainScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4880A2762482600A5DB92 /* MainScreenController.swift */; };
+		04A4880D2762482600A5DB92 /* MainScreenController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04A4880B2762482600A5DB92 /* MainScreenController.xib */; };
 		E470E021CE210BA57CDEC793 /* Pods_ForceQuit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D8BAABB3FB30FA8549E0AE1 /* Pods_ForceQuit.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +33,8 @@
 		04A48804276206F400A5DB92 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		04A488062762074C00A5DB92 /* Localized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localized.swift; sourceTree = "<group>"; };
 		04A4880827620BBE00A5DB92 /* NibLoadable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NibLoadable+Extension.swift"; sourceTree = "<group>"; };
+		04A4880A2762482600A5DB92 /* MainScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenController.swift; sourceTree = "<group>"; };
+		04A4880B2762482600A5DB92 /* MainScreenController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainScreenController.xib; sourceTree = "<group>"; };
 		7D8BAABB3FB30FA8549E0AE1 /* Pods_ForceQuit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ForceQuit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E39C8322D13A9BFB53016662 /* Pods-ForceQuit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ForceQuit.debug.xcconfig"; path = "Target Support Files/Pods-ForceQuit/Pods-ForceQuit.debug.xcconfig"; sourceTree = "<group>"; };
 		F294E5B0BFD8871D396EBEF4 /* Pods-ForceQuit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ForceQuit.release.xcconfig"; path = "Target Support Files/Pods-ForceQuit/Pods-ForceQuit.release.xcconfig"; sourceTree = "<group>"; };
@@ -109,6 +113,8 @@
 		04A487F5276204E900A5DB92 /* MainScreenModule */ = {
 			isa = PBXGroup;
 			children = (
+				04A4880A2762482600A5DB92 /* MainScreenController.swift */,
+				04A4880B2762482600A5DB92 /* MainScreenController.xib */,
 			);
 			path = MainScreenModule;
 			sourceTree = "<group>";
@@ -227,6 +233,7 @@
 			files = (
 				04A487E82762039B00A5DB92 /* Assets.xcassets in Resources */,
 				04A48803276206F400A5DB92 /* Localizable.strings in Resources */,
+				04A4880D2762482600A5DB92 /* MainScreenController.xib in Resources */,
 				04A487EB2762039B00A5DB92 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -301,6 +308,7 @@
 				04A488072762074C00A5DB92 /* Localized.swift in Sources */,
 				04A487F82762052800A5DB92 /* Router.swift in Sources */,
 				04A487E62762039A00A5DB92 /* AppDelegate.swift in Sources */,
+				04A4880C2762482600A5DB92 /* MainScreenController.swift in Sources */,
 				04A4880927620BBE00A5DB92 /* NibLoadable+Extension.swift in Sources */,
 				04A488002762065B00A5DB92 /* LocalizationService.swift in Sources */,
 				04A487FB2762055100A5DB92 /* AppPersistentVariables.swift in Sources */,
