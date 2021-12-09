@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  ForceQuit
 //
-//  Created by mac on 9.12.21.
+//  Created by mac on 9.12.21..
 //
 
 import Cocoa
