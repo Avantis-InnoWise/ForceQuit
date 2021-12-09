@@ -1,0 +1,5 @@
+strings:
+  inputs: ForceQuit/Services/LocalizationService/en.lproj
+  outputs:
+    - templateName: structured-swift5
+      output: ForceQuit/Services/LocalizationService/Localized.swift

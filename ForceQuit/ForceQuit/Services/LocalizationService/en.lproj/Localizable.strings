@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  ForceQuit
+
+  Created by mac on 9.12.21.
+  
+*/
+
+"searchPlaceholder" = "Type a file's name";
+"quit" = "Force quit";
+"select" = "Select all";
+"appTitle" = "Macquitter";
