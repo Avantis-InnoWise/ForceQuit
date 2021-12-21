@@ -12,12 +12,16 @@ import Foundation
 internal enum L10n {
   /// Macquitter
   internal static let appTitle = L10n.tr("Localizable", "appTitle")
+  /// Open ForceQuit
+  internal static let openApp = L10n.tr("Localizable", "openApp")
   /// Force quit
   internal static let quit = L10n.tr("Localizable", "quit")
   /// Type a file's name
   internal static let searchPlaceholder = L10n.tr("Localizable", "searchPlaceholder")
   /// Select all
   internal static let select = L10n.tr("Localizable", "select")
+  /// Terminate all
+  internal static let terminateAll = L10n.tr("Localizable", "terminateAll")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

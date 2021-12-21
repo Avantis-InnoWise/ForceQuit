@@ -6,53 +6,51 @@
 //
 
 import Cocoa
+import Popover
+
+class MyPopoverConfiguration: DefaultConfiguration {
+    override var backgroundColor: NSColor {
+        return NSColor.darkGray
+    }
+
+    override var borderColor: NSColor? {
+        return NSColor.clear
+    }
+}
 
 @main
 class AppDelegate: NSObject,
                    NSApplicationDelegate {
     @IBOutlet var window: NSWindow!
     private var rootRouter: RootRouter?
+    private var popover: Popover!
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         self.window = NSWindow(contentRect: NSScreen.main?.frame ?? NSRect(),
                                styleMask: [.miniaturizable, .closable, .resizable, .titled],
                                backing: .buffered,
                                defer: false)
+
+        let statusBarItem = NSStatusBar.system.statusItem(withLength: CGFloat(NSStatusItem.variableLength))
+        if let button = statusBarItem.button {
+            button.image = NSImage(systemSymbolName: "xmark.circle", accessibilityDescription: "ForceQuit")
+        }
+
+        let popoverVC = PopoverViewController.loadFromNib()
+        self.popover = Popover(with: MyPopoverConfiguration(), menuItems: [])
+        self.popover.prepare(with: statusBarItem.button?.image ?? NSImage(), contentViewController: popoverVC)
+
         self.rootRouter = RootRouter()
-        window.title = L10n.appTitle.localize()
-        window?.contentViewController = rootRouter?.rootViewController
+        self.window.title = L10n.appTitle.localize()
+        self.window?.contentViewController = rootRouter?.rootViewController
         self.window?.makeKeyAndOrderFront(nil)
     }
 
     func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {
         return true
     }
+
+    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+        return true
+    }
 }
-
-
-//func applicationDidFinishLaunching(_ aNotification: Notification) {
-//    let contentView = ContentView()
-//
-//    let popover = NSPopover()
-//    popover.contentSize = NSSize(width: contentView.width, height: contentView.height)
-//    popover.behavior = .transient
-//    popover.contentViewController = NSHostingController(rootView: contentView)
-//    self.popover = popover
-//
-//    statusBarItem = NSStatusBar.system.statusItem(withLength: CGFloat(NSStatusItem.variableLength))
-//
-//    if let button = statusBarItem.button {
-//        button.image = NSImage(systemSymbolName: "xmark.circle", accessibilityDescription: "Nuke")
-//        button.action = #selector(togglePopover(_:))
-//    }
-//}
-//
-//@objc func togglePopover(_ sender: AnyObject?) {
-//    if let button = statusBarItem.button {
-//        if popover.isShown {
-//            popover.performClose(sender)
-//        } else {
-//            popover.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
-//        }
-//    }
-//}

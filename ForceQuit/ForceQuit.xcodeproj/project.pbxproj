@@ -18,6 +18,11 @@
 		04A4880927620BBE00A5DB92 /* NibLoadable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4880827620BBE00A5DB92 /* NibLoadable+Extension.swift */; };
 		04A4880C2762482600A5DB92 /* MainScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4880A2762482600A5DB92 /* MainScreenController.swift */; };
 		04A4880D2762482600A5DB92 /* MainScreenController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04A4880B2762482600A5DB92 /* MainScreenController.xib */; };
+		04EF4CCA2771DAFF00FB1AD0 /* Popover in Frameworks */ = {isa = PBXBuildFile; productRef = 04EF4CC92771DAFF00FB1AD0 /* Popover */; };
+		04EF4CCF2771DCA100FB1AD0 /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EF4CCD2771DCA100FB1AD0 /* PopoverViewController.swift */; };
+		04EF4CD02771DCA100FB1AD0 /* PopoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04EF4CCE2771DCA100FB1AD0 /* PopoverViewController.xib */; };
+		04EF4CD22771DD8B00FB1AD0 /* NSButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EF4CD12771DD8B00FB1AD0 /* NSButton+Extension.swift */; };
+		04EF4CD42771DE7400FB1AD0 /* UIEdgeInsets+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EF4CD32771DE7400FB1AD0 /* UIEdgeInsets+Extension.swift */; };
 		E470E021CE210BA57CDEC793 /* Pods_ForceQuit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D8BAABB3FB30FA8549E0AE1 /* Pods_ForceQuit.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +40,10 @@
 		04A4880827620BBE00A5DB92 /* NibLoadable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NibLoadable+Extension.swift"; sourceTree = "<group>"; };
 		04A4880A2762482600A5DB92 /* MainScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenController.swift; sourceTree = "<group>"; };
 		04A4880B2762482600A5DB92 /* MainScreenController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainScreenController.xib; sourceTree = "<group>"; };
+		04EF4CCD2771DCA100FB1AD0 /* PopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
+		04EF4CCE2771DCA100FB1AD0 /* PopoverViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopoverViewController.xib; sourceTree = "<group>"; };
+		04EF4CD12771DD8B00FB1AD0 /* NSButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSButton+Extension.swift"; sourceTree = "<group>"; };
+		04EF4CD32771DE7400FB1AD0 /* UIEdgeInsets+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Extension.swift"; sourceTree = "<group>"; };
 		7D8BAABB3FB30FA8549E0AE1 /* Pods_ForceQuit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ForceQuit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E39C8322D13A9BFB53016662 /* Pods-ForceQuit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ForceQuit.debug.xcconfig"; path = "Target Support Files/Pods-ForceQuit/Pods-ForceQuit.debug.xcconfig"; sourceTree = "<group>"; };
 		F294E5B0BFD8871D396EBEF4 /* Pods-ForceQuit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ForceQuit.release.xcconfig"; path = "Target Support Files/Pods-ForceQuit/Pods-ForceQuit.release.xcconfig"; sourceTree = "<group>"; };
@@ -45,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04EF4CCA2771DAFF00FB1AD0 /* Popover in Frameworks */,
 				E470E021CE210BA57CDEC793 /* Pods_ForceQuit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -76,7 +86,7 @@
 				04A487EC2762039B00A5DB92 /* ForceQuit.entitlements */,
 				04A487F62762050700A5DB92 /* Utils */,
 				04A487F4276204E000A5DB92 /* BaseClasses */,
-				04A487F5276204E900A5DB92 /* MainScreenModule */,
+				04A487F5276204E900A5DB92 /* Modules */,
 				04A487F3276204D900A5DB92 /* Resources */,
 				04A487FD2762063E00A5DB92 /* Services */,
 				04A487F2276204CC00A5DB92 /* SupportingFiles */,
@@ -110,13 +120,13 @@
 			path = BaseClasses;
 			sourceTree = "<group>";
 		};
-		04A487F5276204E900A5DB92 /* MainScreenModule */ = {
+		04A487F5276204E900A5DB92 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				04A4880A2762482600A5DB92 /* MainScreenController.swift */,
-				04A4880B2762482600A5DB92 /* MainScreenController.xib */,
+				04EF4CCC2771DBF300FB1AD0 /* PopoverScreenModule */,
+				04EF4CCB2771DBD300FB1AD0 /* MainScreenModule */,
 			);
-			path = MainScreenModule;
+			path = Modules;
 			sourceTree = "<group>";
 		};
 		04A487F62762050700A5DB92 /* Utils */ = {
@@ -131,6 +141,8 @@
 			isa = PBXGroup;
 			children = (
 				04A4880827620BBE00A5DB92 /* NibLoadable+Extension.swift */,
+				04EF4CD12771DD8B00FB1AD0 /* NSButton+Extension.swift */,
+				04EF4CD32771DE7400FB1AD0 /* UIEdgeInsets+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -151,6 +163,24 @@
 				04A48805276206F400A5DB92 /* Localizable.strings */,
 			);
 			path = LocalizationService;
+			sourceTree = "<group>";
+		};
+		04EF4CCB2771DBD300FB1AD0 /* MainScreenModule */ = {
+			isa = PBXGroup;
+			children = (
+				04A4880A2762482600A5DB92 /* MainScreenController.swift */,
+				04A4880B2762482600A5DB92 /* MainScreenController.xib */,
+			);
+			path = MainScreenModule;
+			sourceTree = "<group>";
+		};
+		04EF4CCC2771DBF300FB1AD0 /* PopoverScreenModule */ = {
+			isa = PBXGroup;
+			children = (
+				04EF4CCD2771DCA100FB1AD0 /* PopoverViewController.swift */,
+				04EF4CCE2771DCA100FB1AD0 /* PopoverViewController.xib */,
+			);
+			path = PopoverScreenModule;
 			sourceTree = "<group>";
 		};
 		12CB950ABF899137162D9203 /* Pods */ = {
@@ -189,6 +219,9 @@
 			dependencies = (
 			);
 			name = ForceQuit;
+			packageProductDependencies = (
+				04EF4CC92771DAFF00FB1AD0 /* Popover */,
+			);
 			productName = ForceQuit;
 			productReference = 04A487E22762039A00A5DB92 /* ForceQuit.app */;
 			productType = "com.apple.product-type.application";
@@ -217,6 +250,9 @@
 				Base,
 			);
 			mainGroup = 04A487D92762039A00A5DB92;
+			packageReferences = (
+				04EF4CC82771DAFF00FB1AD0 /* XCRemoteSwiftPackageReference "Popover" */,
+			);
 			productRefGroup = 04A487E32762039A00A5DB92 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -233,6 +269,7 @@
 			files = (
 				04A487E82762039B00A5DB92 /* Assets.xcassets in Resources */,
 				04A48803276206F400A5DB92 /* Localizable.strings in Resources */,
+				04EF4CD02771DCA100FB1AD0 /* PopoverViewController.xib in Resources */,
 				04A4880D2762482600A5DB92 /* MainScreenController.xib in Resources */,
 				04A487EB2762039B00A5DB92 /* MainMenu.xib in Resources */,
 			);
@@ -305,12 +342,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04EF4CD42771DE7400FB1AD0 /* UIEdgeInsets+Extension.swift in Sources */,
+				04EF4CD22771DD8B00FB1AD0 /* NSButton+Extension.swift in Sources */,
 				04A488072762074C00A5DB92 /* Localized.swift in Sources */,
 				04A487F82762052800A5DB92 /* Router.swift in Sources */,
 				04A487E62762039A00A5DB92 /* AppDelegate.swift in Sources */,
 				04A4880C2762482600A5DB92 /* MainScreenController.swift in Sources */,
 				04A4880927620BBE00A5DB92 /* NibLoadable+Extension.swift in Sources */,
 				04A488002762065B00A5DB92 /* LocalizationService.swift in Sources */,
+				04EF4CCF2771DCA100FB1AD0 /* PopoverViewController.swift in Sources */,
 				04A487FB2762055100A5DB92 /* AppPersistentVariables.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -530,6 +570,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		04EF4CC82771DAFF00FB1AD0 /* XCRemoteSwiftPackageReference "Popover" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/iSapozhnik/Popover";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		04EF4CC92771DAFF00FB1AD0 /* Popover */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 04EF4CC82771DAFF00FB1AD0 /* XCRemoteSwiftPackageReference "Popover" */;
+			productName = Popover;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 04A487DA2762039A00A5DB92 /* Project object */;
 }

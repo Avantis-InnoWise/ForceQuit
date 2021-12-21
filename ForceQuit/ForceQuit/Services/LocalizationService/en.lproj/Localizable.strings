@@ -10,3 +10,5 @@
 "quit" = "Force quit";
 "select" = "Select all";
 "appTitle" = "Macquitter";
+"terminateAll" = "Terminate all";
+"openApp" = "Open ForceQuit";
