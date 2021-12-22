@@ -8,10 +8,9 @@
 import Cocoa
 
 final class MainScreenController: NSViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do view setup here.
+
     }
 
     private func terminateAllApps() {
@@ -22,7 +21,6 @@ final class MainScreenController: NSViewController {
     }
 
     // can get icons from NSRunningAplication, title - the same
-
     @objc private func ternimateApp() {
         NSApplication.shared.terminate(AnyObject.self)
     }

@@ -24,20 +24,22 @@ final class PopoverViewController: NSViewController {
     }
 
     private func configureView() {
-        self.boxView.fillColor = .darkGray
+        self.boxView.fillColor = .white
         self.boxView.cornerRadius = 5
         self.boxView.borderColor = .clear
 
         let terminateAllButton = NSButton()
         terminateAllButton.makeButton(with: Constants.blackColor, radius: Constants.cornerRadius)
         terminateAllButton.setAccessibilityIdentifier("terminate_button")
-        terminateAllButton.title = L10n.terminateAll.localize()
+        terminateAllButton.attributedTitle = NSAttributedString(string: L10n.terminateAll.localize(),
+                                                                attributes: [NSAttributedString.Key.foregroundColor : NSColor.white])
         terminateAllButton.action = #selector(ternimateAllApplications)
 
         let openAppButton = NSButton()
         openAppButton.makeButton(with: Constants.blackColor, radius: Constants.cornerRadius)
         openAppButton.setAccessibilityIdentifier("open_button")
-        openAppButton.title = L10n.openApp.localize()
+        openAppButton.attributedTitle = NSAttributedString(string: L10n.openApp.localize(),
+                                                           attributes: [NSAttributedString.Key.foregroundColor : NSColor.white])
         openAppButton.action = #selector(openApplication)
 
         self.setupConstraints(with: terminateAllButton, openAppButton)

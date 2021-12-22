@@ -10,7 +10,7 @@ import Popover
 
 class MyPopoverConfiguration: DefaultConfiguration {
     override var backgroundColor: NSColor {
-        return NSColor.darkGray
+        return NSColor.white
     }
 
     override var borderColor: NSColor? {
