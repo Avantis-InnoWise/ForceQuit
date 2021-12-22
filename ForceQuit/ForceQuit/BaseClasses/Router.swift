@@ -25,6 +25,6 @@ public final class RootRouter: Router {
 
 extension RootRouter {
     func openMainScreen() -> NSViewController {
-        return NSViewController() // MainScreenController.loadFromNib()
+        return MainScreenController.loadFromNib()
     }
 }

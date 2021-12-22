@@ -66,7 +66,6 @@ final class PopoverViewController: NSViewController {
         }
     }
 
-    // can get icons from NSRunningAplication, title - the same
     @objc private func ternimateAllApplications() {
         let openApps = NSWorkspace.shared.runningApplications
         for app in openApps where app.activationPolicy == .regular {
