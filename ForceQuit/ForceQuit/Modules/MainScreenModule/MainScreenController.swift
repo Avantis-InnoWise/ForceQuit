@@ -30,6 +30,8 @@ final class MainScreenController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.tableVeiw.delegate = self
+        self.tableVeiw.dataSource = self
         self.searchField.appearance = NSAppearance(named: .aqua)
         self.searchField.delegate = self
 
@@ -37,7 +39,8 @@ final class MainScreenController: NSViewController {
         DispatchQueue.main.async { [weak self] in
             let openApps = NSWorkspace.shared.runningApplications
             for app in openApps where app.activationPolicy == .regular {
-                self?.apps.append(AppsListItem(app: App(name: app.className, icon: app.icon ?? NSImage())))
+                self?.apps.append(AppsListItem(app: App(name: app.localizedName ?? L10n.nameError.localize(),
+                                                        icon: app.icon ?? NSImage())))
             }
             self?.filteredApps = self?.apps ?? []
             self?.tableVeiw.reloadData()

@@ -12,3 +12,4 @@
 "appTitle" = "Macquitter";
 "terminateAll" = "Terminate all";
 "openApp" = "Open ForceQuit";
+"nameError" = "Cant't get an application name";

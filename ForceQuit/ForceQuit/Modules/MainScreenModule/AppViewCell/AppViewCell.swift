@@ -8,7 +8,6 @@
 import Cocoa
 
 final class AppViewCell: NSTableCellView {
-
     @IBOutlet private weak var checkbox: Checkbox!
     @IBOutlet private weak var appIconImageView: NSImageView!
     @IBOutlet private weak var appNameLabel: NSTextField!

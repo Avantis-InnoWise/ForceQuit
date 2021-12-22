@@ -12,6 +12,8 @@ import Foundation
 internal enum L10n {
   /// Macquitter
   internal static let appTitle = L10n.tr("Localizable", "appTitle")
+  /// Cant't get an application name
+  internal static let nameError = L10n.tr("Localizable", "nameError")
   /// Open ForceQuit
   internal static let openApp = L10n.tr("Localizable", "openApp")
   /// Force quit
