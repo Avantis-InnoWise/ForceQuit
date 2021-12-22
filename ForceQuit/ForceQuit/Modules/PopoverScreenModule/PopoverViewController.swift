@@ -75,6 +75,9 @@ final class PopoverViewController: NSViewController {
     }
 
     @objc private func openApplication() {
-        debugPrint("open pressed")
+        NSApp.setActivationPolicy(.regular)
+        DispatchQueue.main.async {
+            NSApp.windows.first?.orderFrontRegardless()
+        }
     }
 }
