@@ -8,10 +8,12 @@
 import Cocoa
 
 extension NSButton {
-    func makeButton(with color: NSColor, radius: CGFloat) {
+    func makeButton(with color: NSColor, radius: CGFloat, title: String) {
         self.bezelStyle = .rounded
         self.wantsLayer = true
         self.isBordered = false
+        self.attributedTitle = NSAttributedString(string: title,
+                                                  attributes: [NSAttributedString.Key.foregroundColor : NSColor.white])
         self.layer?.backgroundColor = color.cgColor
         self.layer?.masksToBounds = true
         self.layer?.cornerRadius = radius

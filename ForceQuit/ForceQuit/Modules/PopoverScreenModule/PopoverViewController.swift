@@ -13,6 +13,7 @@ final class PopoverViewController: NSViewController {
         static let terminateInsets: NSEdgeInsets = NSEdgeInsets(all: 5)
         static let cornerRadius: CGFloat = 5
         static let blackColor: NSColor = NSColor.black
+        static let buttonHeight: CGFloat = 40
     }
 
     @IBOutlet private weak var boxView: NSBox!
@@ -29,17 +30,13 @@ final class PopoverViewController: NSViewController {
         self.boxView.borderColor = .clear
 
         let terminateAllButton = NSButton()
-        terminateAllButton.makeButton(with: Constants.blackColor, radius: Constants.cornerRadius)
+        terminateAllButton.makeButton(with: Constants.blackColor, radius: Constants.cornerRadius, title: L10n.terminateAll.localize())
         terminateAllButton.setAccessibilityIdentifier("terminate_button")
-        terminateAllButton.attributedTitle = NSAttributedString(string: L10n.terminateAll.localize(),
-                                                                attributes: [NSAttributedString.Key.foregroundColor : NSColor.white])
         terminateAllButton.action = #selector(ternimateAllApplications)
 
         let openAppButton = NSButton()
-        openAppButton.makeButton(with: Constants.blackColor, radius: Constants.cornerRadius)
+        openAppButton.makeButton(with: Constants.blackColor, radius: Constants.cornerRadius, title: L10n.openApp.localize())
         openAppButton.setAccessibilityIdentifier("open_button")
-        openAppButton.attributedTitle = NSAttributedString(string: L10n.openApp.localize(),
-                                                           attributes: [NSAttributedString.Key.foregroundColor : NSColor.white])
         openAppButton.action = #selector(openApplication)
 
         self.setupConstraints(with: terminateAllButton, openAppButton)
@@ -51,14 +48,14 @@ final class PopoverViewController: NSViewController {
             switch button.accessibilityIdentifier() {
             case "terminate_button":
                 button.snp.makeConstraints {
-                    $0.height.equalTo(40)
+                    $0.height.equalTo(Constants.buttonHeight)
                     $0.top.equalTo(self.boxView.snp.top).inset(Constants.terminateInsets.top)
                     $0.left.equalTo(self.boxView.snp.left).inset(Constants.terminateInsets.left)
                     $0.right.equalTo(self.boxView.snp.right).inset(Constants.terminateInsets.right)
                 }
             case "open_button":
                 button.snp.makeConstraints {
-                    $0.height.equalTo(40)
+                    $0.height.equalTo(Constants.buttonHeight)
                     $0.left.equalTo(self.boxView.snp.left).inset(Constants.terminateInsets.left)
                     $0.right.equalTo(self.boxView.snp.right).inset(Constants.terminateInsets.right)
                     $0.bottom.equalTo(self.boxView.snp.bottom).inset(Constants.terminateInsets.bottom)
