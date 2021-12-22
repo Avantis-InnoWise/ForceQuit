@@ -10,10 +10,6 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MainScreenController" customModule="ForceQuit" customModuleProvider="target">
             <connections>
-                <outlet property="searchField" destination="6zW-bx-5Cd" id="byP-xb-TMP"/>
-                <outlet property="selectAllButton" destination="9yb-Bo-f7S" id="hgr-vV-ZW3"/>
-                <outlet property="tableVeiw" destination="GYG-FG-mJb" id="idr-Wh-1oR"/>
-                <outlet property="terminateButton" destination="txR-Sm-wAv" id="mz2-mf-gtA"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -48,9 +44,6 @@
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
-                            <connections>
-                                <action selector="terminateTapped:" target="-2" id="3KX-HQ-ooa"/>
-                            </connections>
                         </button>
                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9yb-Bo-f7S" customClass="GradientButton" customModule="ForceQuit" customModuleProvider="target">
                             <rect key="frame" x="288" y="19" width="85" height="28"/>
@@ -66,9 +59,6 @@
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
                             <color key="bezelColor" name="bordersButtons"/>
-                            <connections>
-                                <action selector="selectAllTapped:" target="-2" id="Gse-82-C0T"/>
-                            </connections>
                         </button>
                         <box appearanceType="aqua" boxType="custom" borderWidth="0.0" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="qeE-wU-DOw">
                             <rect key="frame" x="26" y="0.0" width="748" height="1"/>
@@ -170,7 +160,7 @@
                                         </textFieldCell>
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         <prototypeCellViews>
-                                            <tableCellView identifier="AppViewCell" focusRingType="none" id="eta-8f-kNq" customClass="AppViewCell" customModule="ForceQuit" customModuleProvider="target">
+                                            <tableCellView identifier="AppCellView" focusRingType="none" id="eta-8f-kNq" customClass="AppViewCell" customModule="ForceQuit" customModuleProvider="target">
                                                 <rect key="frame" x="18" y="0.0" width="763" height="46"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>

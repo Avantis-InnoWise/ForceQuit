@@ -1,0 +1,27 @@
+
+/* Class = "NSButtonCell"; title = "Select all"; ObjectID = "8Io-Cb-bG7"; */
+"8Io-Cb-bG7.title" = "Select all";
+
+/* Class = "NSTextFieldCell"; title = "Label"; ObjectID = "DNh-EK-fJy"; */
+"DNh-EK-fJy.title" = "Label";
+
+/* Class = "NSBox"; title = "Box"; ObjectID = "E4Z-zk-mL2"; */
+"E4Z-zk-mL2.title" = "Box";
+
+/* Class = "NSBox"; title = "Box"; ObjectID = "Emi-xu-p2D"; */
+"Emi-xu-p2D.title" = "Box";
+
+/* Class = "NSTextFieldCell"; title = "Label"; ObjectID = "NqC-ZH-lP5"; */
+"NqC-ZH-lP5.title" = "Label";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Type application name"; ObjectID = "SIL-bY-Kee"; */
+"SIL-bY-Kee.placeholderString" = "Type application name";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "X8x-wM-1BH"; */
+"X8x-wM-1BH.title" = "Text Cell";
+
+/* Class = "NSBox"; title = "Box"; ObjectID = "qeE-wU-DOw"; */
+"qeE-wU-DOw.title" = "Box";
+
+/* Class = "NSButtonCell"; title = "Terminate"; ObjectID = "uBn-TI-wsk"; */
+"uBn-TI-wsk.title" = "Terminate";
