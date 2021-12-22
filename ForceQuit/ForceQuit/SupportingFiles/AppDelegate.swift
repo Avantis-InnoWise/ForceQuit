@@ -8,16 +8,6 @@
 import Cocoa
 import Popover
 
-class MyPopoverConfiguration: DefaultConfiguration {
-    override var backgroundColor: NSColor {
-        return NSColor.darkGray
-    }
-
-    override var borderColor: NSColor? {
-        return NSColor.clear
-    }
-}
-
 @main
 class AppDelegate: NSObject,
                    NSApplicationDelegate {
@@ -31,14 +21,10 @@ class AppDelegate: NSObject,
                                backing: .buffered,
                                defer: false)
 
-        let statusBarItem = NSStatusBar.system.statusItem(withLength: CGFloat(NSStatusItem.variableLength))
-        if let button = statusBarItem.button {
-            button.image = NSImage(systemSymbolName: "xmark.circle", accessibilityDescription: "ForceQuit")
-        }
-
-        let popoverVC = PopoverViewController.loadFromNib()
+        let popoverController = PopoverViewController.loadFromNib()
         self.popover = Popover(with: MyPopoverConfiguration(), menuItems: [])
-        self.popover.prepare(with: statusBarItem.button?.image ?? NSImage(), contentViewController: popoverVC)
+        self.popover.prepare(with: NSImage(systemSymbolName: "xmark.circle", accessibilityDescription: "ForceQuit") ?? NSImage(),
+                             contentViewController: popoverController)
 
         self.rootRouter = RootRouter()
         self.window.title = L10n.appTitle.localize()
