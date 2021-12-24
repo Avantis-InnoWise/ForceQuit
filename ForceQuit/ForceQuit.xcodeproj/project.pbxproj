@@ -30,7 +30,6 @@
 		04EF4CE12773557800FB1AD0 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EF4CE02773557800FB1AD0 /* Checkbox.swift */; };
 		04EF4CE42773647000FB1AD0 /* AppViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EF4CE32773647000FB1AD0 /* AppViewCell.swift */; };
 		04EF4CEC277366E400FB1AD0 /* MainScreenController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04EF4CEB277366E400FB1AD0 /* MainScreenController.xib */; };
-		04EF4CEE27736B8500FB1AD0 /* MainScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EF4CED27736B8500FB1AD0 /* MainScreenPresenter.swift */; };
 		E470E021CE210BA57CDEC793 /* Pods_ForceQuit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D8BAABB3FB30FA8549E0AE1 /* Pods_ForceQuit.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,7 +58,6 @@
 		04EF4CE02773557800FB1AD0 /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
 		04EF4CE32773647000FB1AD0 /* AppViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewCell.swift; sourceTree = "<group>"; };
 		04EF4CEB277366E400FB1AD0 /* MainScreenController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainScreenController.xib; sourceTree = "<group>"; };
-		04EF4CED27736B8500FB1AD0 /* MainScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenPresenter.swift; sourceTree = "<group>"; };
 		7D8BAABB3FB30FA8549E0AE1 /* Pods_ForceQuit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ForceQuit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E39C8322D13A9BFB53016662 /* Pods-ForceQuit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ForceQuit.debug.xcconfig"; path = "Target Support Files/Pods-ForceQuit/Pods-ForceQuit.debug.xcconfig"; sourceTree = "<group>"; };
 		F294E5B0BFD8871D396EBEF4 /* Pods-ForceQuit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ForceQuit.release.xcconfig"; path = "Target Support Files/Pods-ForceQuit/Pods-ForceQuit.release.xcconfig"; sourceTree = "<group>"; };
@@ -186,7 +184,6 @@
 			isa = PBXGroup;
 			children = (
 				04EF4CE227735FD400FB1AD0 /* AppViewCell */,
-				04EF4CED27736B8500FB1AD0 /* MainScreenPresenter.swift */,
 				04A4880A2762482600A5DB92 /* MainScreenController.swift */,
 				04EF4CEB277366E400FB1AD0 /* MainScreenController.xib */,
 				04EF4CD527731E1700FB1AD0 /* MainScreenEntity.swift */,
@@ -393,7 +390,6 @@
 				04EF4CDF2773554300FB1AD0 /* SectionButton.swift in Sources */,
 				04A487E62762039A00A5DB92 /* AppDelegate.swift in Sources */,
 				04A4880C2762482600A5DB92 /* MainScreenController.swift in Sources */,
-				04EF4CEE27736B8500FB1AD0 /* MainScreenPresenter.swift in Sources */,
 				04EF4CDD2773552200FB1AD0 /* BorderedRoundedButton.swift in Sources */,
 				04A4880927620BBE00A5DB92 /* NibLoadable+Extension.swift in Sources */,
 				04A488002762065B00A5DB92 /* LocalizationService.swift in Sources */,

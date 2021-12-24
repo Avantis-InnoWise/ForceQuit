@@ -11,7 +11,6 @@ final class AppViewCell: NSTableCellView {
     @IBOutlet private weak var checkbox: Checkbox!
     @IBOutlet private weak var appIconImageView: NSImageView!
     @IBOutlet private weak var appNameLabel: NSTextField!
-    @IBOutlet private weak var appLocationLabel: NSTextField!
 
     private var checkboxHandler: (() -> Void)?
 
@@ -20,6 +19,10 @@ final class AppViewCell: NSTableCellView {
         self.appIconImageView.image = item.app.icon
         self.appNameLabel.stringValue = item.app.name
         self.checkboxHandler = checkboxHandler
+    }
+
+    func updateCheckbox() {
+        self.checkbox.state = .on
     }
 
     @IBAction private func checkboxWasTapped(_ sender: Checkbox) {

@@ -18,8 +18,8 @@ final class MainScreenController: NSViewController {
     @IBOutlet weak var terminateButton: BorderedRoundedButton!
     @IBOutlet weak var tableVeiw: NSTableView!
 
-    private var apps = [AppsListItem]()
-    private var filteredApps = [AppsListItem]()
+    private var apps: [AppsListItem] = []
+    private var filteredApps: [AppsListItem] = []
     private var filter = "" {
         didSet {
             self.filteredApps = filter.isEmpty ? self.apps : self.apps.filter { $0.app.name.lowercased().contains(self.filter) }
@@ -35,22 +35,15 @@ final class MainScreenController: NSViewController {
         self.searchField.appearance = NSAppearance(named: .aqua)
         self.searchField.delegate = self
 
-
         DispatchQueue.main.async { [weak self] in
             let openApps = NSWorkspace.shared.runningApplications
             for app in openApps where app.activationPolicy == .regular {
                 self?.apps.append(AppsListItem(app: App(name: app.localizedName ?? L10n.nameError.localize(),
-                                                        icon: app.icon ?? NSImage())))
+                                                        icon: app.icon ?? NSImage(),
+                                                        cpu: "0.3 % CPU")))
             }
             self?.filteredApps = self?.apps ?? []
             self?.tableVeiw.reloadData()
-        }
-    }
-
-    private func terminateAllApps() {
-        let openApps = NSWorkspace.shared.runningApplications
-        for app in openApps where app.activationPolicy == .regular {
-            app.forceTerminate()
         }
     }
 
@@ -60,9 +53,42 @@ final class MainScreenController: NSViewController {
     }
 
     @IBAction func selectAllTapped(_ sender: Any) {
+//        self.filteredApps = self.filteredApps.map({
+//            var app = $0
+//            app.setSelected(true)
+//            return app
+//        })
+//
+//        for index in 0..<self.filteredApps.count {
+//            if let cell = self.tableVeiw.tableColumns.first?.dataCell(forRow: index) as? AppViewCell {
+//                cell.updateCheckbox()
+//            }
+//        }
+//
+//        self.tableVeiw.reloadData()
+
     }
 
     @IBAction func terminateTapped(_ sender: Any) {
+        let appsToTerminate = self.filteredApps.filter({ $0.isSelected == true })
+        let openApps = NSWorkspace.shared.runningApplications
+        for app in openApps where app.activationPolicy == .regular {
+            if appsToTerminate.contains(where: { $0.app.name == app.localizedName }) {
+                app.forceTerminate()
+            }
+        }
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.apps = []
+            let openApps = NSWorkspace.shared.runningApplications
+            for app in openApps where app.activationPolicy == .regular {
+                self.apps.append(AppsListItem(app: App(name: app.localizedName ?? L10n.nameError.localize(),
+                                                       icon: app.icon ?? NSImage(),
+                                                       cpu: "0.3 % CPU")))
+            }
+            self.filteredApps = self.apps
+            self.tableVeiw.reloadData()
+        }
     }
 }
 
@@ -74,7 +100,7 @@ extension MainScreenController: NSTableViewDataSource, NSTableViewDelegate {
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         let cellId = NSUserInterfaceItemIdentifier(Constants.tableCellId)
         if let cellView = tableView.makeView(withIdentifier: cellId, owner: self) as? AppViewCell {
-            cellView.configure(with: filteredApps[row]) { [weak self] in
+            cellView.configure(with: self.filteredApps[row]) { [weak self] in
                 self?.filteredApps[row].toggleSelection()
                 self?.terminateButton.isColored = self?.filteredApps.contains { $0.isSelected } ?? false
                 guard let indexInUnfilteredApps = self?.apps.firstIndex(where: { $0.app == self?.filteredApps[row].app }) else { return }

@@ -28,6 +28,7 @@ class AppDelegate: NSObject,
 
         self.rootRouter = RootRouter()
         self.window.title = L10n.appTitle.localize()
+        self.window.appearance = NSAppearance(named: .aqua)
         self.window?.contentViewController = rootRouter?.rootViewController
         self.window?.makeKeyAndOrderFront(nil)
     }

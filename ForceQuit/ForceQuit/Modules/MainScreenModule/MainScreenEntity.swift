@@ -10,6 +10,7 @@ import Cocoa
 struct App: Equatable {
     var name: String
     var icon: NSImage
+    var cpu: String
 }
 
 struct AppsListItem {
