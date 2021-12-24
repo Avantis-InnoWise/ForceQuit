@@ -41,7 +41,7 @@ final class MainScreenController: NSViewController {
             let cpus = self?.cpuHelper.getCpu()
 
             for app in openApps where app.activationPolicy == .regular {
-                let cpuCount = (Double(cpus?[Int(app.processIdentifier)] ?? "0") ?? 0) / Double(ProcessInfo.processInfo.processorCount)
+                let cpuCount = (Double(cpus?[Int(app.processIdentifier)] ?? String.zero) ?? 0) / Double(ProcessInfo.processInfo.processorCount)
                 self?.apps.append(AppsListItem(app: App(name: app.localizedName ?? L10n.nameError.localize(),
                                                         icon: app.icon ?? NSImage(),
                                                         cpu: cpuCount.rounded(toPlaces: 1).description.appending(" % CPU"))))
@@ -88,7 +88,7 @@ final class MainScreenController: NSViewController {
             let openApps = NSWorkspace.shared.runningApplications
             let cpus = self.cpuHelper.getCpu()
             for app in openApps where app.activationPolicy == .regular {
-                let cpuCount = (Double(cpus[Int(app.processIdentifier)] ?? "0") ?? 0) / Double(ProcessInfo.processInfo.processorCount)
+                let cpuCount = (Double(cpus[Int(app.processIdentifier)] ?? String.zero) ?? 0) / Double(ProcessInfo.processInfo.processorCount)
                 self.apps.append(AppsListItem(app: App(name: app.localizedName ?? L10n.nameError.localize(),
                                                         icon: app.icon ?? NSImage(),
                                                         cpu: cpuCount.rounded(toPlaces: 1).description.appending(" % CPU"))))
