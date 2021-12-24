@@ -88,9 +88,10 @@ final class MainScreenController: NSViewController {
             let openApps = NSWorkspace.shared.runningApplications
             let cpus = self.cpuHelper.getCpu()
             for app in openApps where app.activationPolicy == .regular {
+                let cpuCount = (Double(cpus[Int(app.processIdentifier)] ?? "0") ?? 0) / Double(ProcessInfo.processInfo.processorCount)
                 self.apps.append(AppsListItem(app: App(name: app.localizedName ?? L10n.nameError.localize(),
-                                                       icon: app.icon ?? NSImage(),
-                                                       cpu: cpus[Int(app.processIdentifier)]?.appending(" % CPU") ?? "0.0")))
+                                                        icon: app.icon ?? NSImage(),
+                                                        cpu: cpuCount.rounded(toPlaces: 1).description.appending(" % CPU"))))
             }
             self.filteredApps = self.apps
             self.tableVeiw.reloadData()
@@ -120,7 +121,6 @@ extension MainScreenController: NSTableViewDataSource, NSTableViewDelegate {
     }
 }
 
-// MARK: NSSearchFieldDelegate
 extension MainScreenController: NSSearchFieldDelegate {
     func controlTextDidChange(_ obj: Notification) {
         guard let object = obj.object as? NSTextField else { return }
