@@ -175,12 +175,23 @@
                                                 <rect key="frame" x="18" y="0.0" width="763" height="46"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
-                                                    <stackView distribution="fillProportionally" orientation="vertical" alignment="leading" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TIg-TY-3cF">
+                                                    <stackView distribution="fillProportionally" orientation="horizontal" alignment="centerY" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TIg-TY-3cF">
                                                         <rect key="frame" x="78" y="12" width="669" height="16"/>
                                                         <subviews>
                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="O9o-eY-4Yd">
-                                                                <rect key="frame" x="-2" y="0.0" width="40" height="16"/>
-                                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="NqC-ZH-lP5">
+                                                                <rect key="frame" x="-2" y="0.0" width="304" height="16"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="300" id="rAs-QL-6De"/>
+                                                                </constraints>
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Label" id="NqC-ZH-lP5">
+                                                                    <font key="font" metaFont="systemBold"/>
+                                                                    <color key="textColor" name="offButtonTitle"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2iD-0u-w4k">
+                                                                <rect key="frame" x="302" y="0.0" width="369" height="16"/>
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Label" id="f3h-Gi-Egy">
                                                                     <font key="font" metaFont="systemBold"/>
                                                                     <color key="textColor" name="offButtonTitle"/>
                                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -189,8 +200,10 @@
                                                         </subviews>
                                                         <visibilityPriorities>
                                                             <integer value="1000"/>
+                                                            <integer value="1000"/>
                                                         </visibilityPriorities>
                                                         <customSpacing>
+                                                            <real value="3.4028234663852886e+38"/>
                                                             <real value="3.4028234663852886e+38"/>
                                                         </customSpacing>
                                                     </stackView>
@@ -245,6 +258,7 @@
                                                     <outlet property="appIconImageView" destination="gLN-Kt-eRb" id="eOo-16-XYK"/>
                                                     <outlet property="appNameLabel" destination="O9o-eY-4Yd" id="h1U-1w-951"/>
                                                     <outlet property="checkbox" destination="h5o-HJ-Lqv" id="B1n-dR-dt7"/>
+                                                    <outlet property="cpuLabel" destination="2iD-0u-w4k" id="pRU-eD-IZS"/>
                                                 </connections>
                                             </tableCellView>
                                         </prototypeCellViews>

@@ -20,6 +20,7 @@ final class MainScreenController: NSViewController {
 
     private var apps: [AppsListItem] = []
     private var filteredApps: [AppsListItem] = []
+    private var cpuHelper: CPU = CPU()
     private var filter = "" {
         didSet {
             self.filteredApps = filter.isEmpty ? self.apps : self.apps.filter { $0.app.name.lowercased().contains(self.filter) }
@@ -37,17 +38,20 @@ final class MainScreenController: NSViewController {
 
         DispatchQueue.main.async { [weak self] in
             let openApps = NSWorkspace.shared.runningApplications
+            let cpus = self?.cpuHelper.getCpu()
+
             for app in openApps where app.activationPolicy == .regular {
+                let cpuCount = (Double(cpus?[Int(app.processIdentifier)] ?? "0") ?? 0) / Double(ProcessInfo.processInfo.processorCount)
                 self?.apps.append(AppsListItem(app: App(name: app.localizedName ?? L10n.nameError.localize(),
                                                         icon: app.icon ?? NSImage(),
-                                                        cpu: "0.3 % CPU")))
+                                                        cpu: cpuCount.rounded(toPlaces: 1).description.appending(" % CPU"))))
             }
+
             self?.filteredApps = self?.apps ?? []
             self?.tableVeiw.reloadData()
         }
     }
 
-    // can get icons from NSRunningAplication, title - the same
     @objc private func ternimateApp() {
         NSApplication.shared.terminate(AnyObject.self)
     }
@@ -78,13 +82,15 @@ final class MainScreenController: NSViewController {
             }
         }
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+            guard let self = self else { return }
             self.apps = []
             let openApps = NSWorkspace.shared.runningApplications
+            let cpus = self.cpuHelper.getCpu()
             for app in openApps where app.activationPolicy == .regular {
                 self.apps.append(AppsListItem(app: App(name: app.localizedName ?? L10n.nameError.localize(),
                                                        icon: app.icon ?? NSImage(),
-                                                       cpu: "0.3 % CPU")))
+                                                       cpu: cpus[Int(app.processIdentifier)]?.appending(" % CPU") ?? "0.0")))
             }
             self.filteredApps = self.apps
             self.tableVeiw.reloadData()

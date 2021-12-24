@@ -30,6 +30,7 @@
 		04EF4CE12773557800FB1AD0 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EF4CE02773557800FB1AD0 /* Checkbox.swift */; };
 		04EF4CE42773647000FB1AD0 /* AppViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EF4CE32773647000FB1AD0 /* AppViewCell.swift */; };
 		04EF4CEC277366E400FB1AD0 /* MainScreenController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04EF4CEB277366E400FB1AD0 /* MainScreenController.xib */; };
+		04EF4CF22776740A00FB1AD0 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EF4CF12776740A00FB1AD0 /* Double+Extension.swift */; };
 		E470E021CE210BA57CDEC793 /* Pods_ForceQuit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D8BAABB3FB30FA8549E0AE1 /* Pods_ForceQuit.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		04EF4CE02773557800FB1AD0 /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
 		04EF4CE32773647000FB1AD0 /* AppViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewCell.swift; sourceTree = "<group>"; };
 		04EF4CEB277366E400FB1AD0 /* MainScreenController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainScreenController.xib; sourceTree = "<group>"; };
+		04EF4CF12776740A00FB1AD0 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		7D8BAABB3FB30FA8549E0AE1 /* Pods_ForceQuit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ForceQuit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E39C8322D13A9BFB53016662 /* Pods-ForceQuit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ForceQuit.debug.xcconfig"; path = "Target Support Files/Pods-ForceQuit/Pods-ForceQuit.debug.xcconfig"; sourceTree = "<group>"; };
 		F294E5B0BFD8871D396EBEF4 /* Pods-ForceQuit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ForceQuit.release.xcconfig"; path = "Target Support Files/Pods-ForceQuit/Pods-ForceQuit.release.xcconfig"; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				04A4880827620BBE00A5DB92 /* NibLoadable+Extension.swift */,
 				04EF4CD12771DD8B00FB1AD0 /* NSButton+Extension.swift */,
 				04EF4CD32771DE7400FB1AD0 /* UIEdgeInsets+Extension.swift */,
+				04EF4CF12776740A00FB1AD0 /* Double+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 			files = (
 				04EF4CE12773557800FB1AD0 /* Checkbox.swift in Sources */,
 				04EF4CD42771DE7400FB1AD0 /* UIEdgeInsets+Extension.swift in Sources */,
+				04EF4CF22776740A00FB1AD0 /* Double+Extension.swift in Sources */,
 				04EF4CD22771DD8B00FB1AD0 /* NSButton+Extension.swift in Sources */,
 				04EF4CE42773647000FB1AD0 /* AppViewCell.swift in Sources */,
 				04EF4CD827731E2100FB1AD0 /* PopoverEntity.swift in Sources */,
