@@ -213,7 +213,7 @@
                                                             <constraint firstAttribute="height" constant="16" id="6kS-Jk-7Yd"/>
                                                             <constraint firstAttribute="width" constant="16" id="Ve0-27-O5y"/>
                                                         </constraints>
-                                                        <buttonCell key="cell" type="roundRect" bezelStyle="roundedRect" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="BBZ-XQ-A6V">
+                                                        <buttonCell key="cell" type="roundRect" bezelStyle="roundedRect" imagePosition="only" inset="2" id="BBZ-XQ-A6V">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="cellTitle"/>
                                                         </buttonCell>

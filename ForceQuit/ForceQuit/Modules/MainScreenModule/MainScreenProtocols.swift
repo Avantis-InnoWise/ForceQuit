@@ -15,4 +15,5 @@ public protocol MainScreenPresenterProtocol {
     func setUpAppsData()
     func forceQuitApp()
     func filterApps(text: String)
+    func selectAllApps()
 }

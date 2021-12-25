@@ -43,6 +43,15 @@ final class MainScreenPresenter: MainScreenPresenterProtocol {
         delegate?.updateTableView()
     }
 
+    func selectAllApps() {
+        self.filteredApps = self.filteredApps.map({
+            var app = $0
+            app.setSelected(true)
+            return app
+        })
+        delegate?.updateTableView()
+    }
+
     func forceQuitApp() {
         let appsToTerminate = self.filteredApps.filter({ $0.isSelected == true })
         let openApps = NSWorkspace.shared.runningApplications

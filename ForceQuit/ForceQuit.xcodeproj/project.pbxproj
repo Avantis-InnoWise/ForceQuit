@@ -34,6 +34,7 @@
 		04EF4CF42776758300FB1AD0 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EF4CF32776758300FB1AD0 /* String+Extension.swift */; };
 		04EF4CF82776A06D00FB1AD0 /* MainScreenProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EF4CF72776A06D00FB1AD0 /* MainScreenProtocols.swift */; };
 		04EF4CFA2776A0EC00FB1AD0 /* MainScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EF4CF92776A0EC00FB1AD0 /* MainScreenPresenter.swift */; };
+		04EF4CFC2776A95500FB1AD0 /* CpuHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EF4CFB2776A95500FB1AD0 /* CpuHelper.swift */; };
 		E470E021CE210BA57CDEC793 /* Pods_ForceQuit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D8BAABB3FB30FA8549E0AE1 /* Pods_ForceQuit.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,7 @@
 		04EF4CF32776758300FB1AD0 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		04EF4CF72776A06D00FB1AD0 /* MainScreenProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenProtocols.swift; sourceTree = "<group>"; };
 		04EF4CF92776A0EC00FB1AD0 /* MainScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenPresenter.swift; sourceTree = "<group>"; };
+		04EF4CFB2776A95500FB1AD0 /* CpuHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CpuHelper.swift; sourceTree = "<group>"; };
 		7D8BAABB3FB30FA8549E0AE1 /* Pods_ForceQuit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ForceQuit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E39C8322D13A9BFB53016662 /* Pods-ForceQuit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ForceQuit.debug.xcconfig"; path = "Target Support Files/Pods-ForceQuit/Pods-ForceQuit.debug.xcconfig"; sourceTree = "<group>"; };
 		F294E5B0BFD8871D396EBEF4 /* Pods-ForceQuit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ForceQuit.release.xcconfig"; path = "Target Support Files/Pods-ForceQuit/Pods-ForceQuit.release.xcconfig"; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				04A487FA2762055100A5DB92 /* AppPersistentVariables.swift */,
+				04EF4CFB2776A95500FB1AD0 /* CpuHelper.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 				04EF4CF82776A06D00FB1AD0 /* MainScreenProtocols.swift in Sources */,
 				04EF4CD827731E2100FB1AD0 /* PopoverEntity.swift in Sources */,
 				04A488072762074C00A5DB92 /* Localized.swift in Sources */,
+				04EF4CFC2776A95500FB1AD0 /* CpuHelper.swift in Sources */,
 				04A487F82762052800A5DB92 /* Router.swift in Sources */,
 				04EF4CD627731E1700FB1AD0 /* MainScreenEntity.swift in Sources */,
 				04EF4CDF2773554300FB1AD0 /* SectionButton.swift in Sources */,

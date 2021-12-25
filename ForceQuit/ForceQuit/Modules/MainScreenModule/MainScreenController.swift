@@ -49,20 +49,15 @@ final class MainScreenController: NSViewController {
     }
 
     @IBAction func selectAllTapped(_ sender: Any) {
-//        self.filteredApps = self.filteredApps.map({
-//            var app = $0
-//            app.setSelected(true)
-//            return app
-//        })
-//
+        guard let presenter = self.presenter else { return }
+        presenter.selectAllApps()
+        self.terminateButton.isColored = presenter.filteredApps.contains { $0.isSelected }
+
 //        for index in 0..<self.filteredApps.count {
 //            if let cell = self.tableVeiw.tableColumns.first?.dataCell(forRow: index) as? AppViewCell {
 //                cell.updateCheckbox()
 //            }
 //        }
-//
-//        self.tableVeiw.reloadData()
-
     }
 
     @IBAction func terminateTapped(_ sender: Any) {
