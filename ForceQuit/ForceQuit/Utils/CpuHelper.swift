@@ -8,7 +8,7 @@
 import Foundation
 
 final class CPU {
-    func getCpu() -> [Int: String] {
+    static func getCpu() -> [Int: String] {
         do {
             self.writeToFile(name: "pid.txt", text: try executeCommand("ps aux | awk '{print $2}'"))
             self.writeToFile(name: "cpu.txt", text: try executeCommand("ps aux | awk '{print $3}'"))
@@ -23,7 +23,7 @@ final class CPU {
         return [:]
     }
 
-    private func readFiles() -> [Int: String] {
+    static private func readFiles() -> [Int: String] {
         var draftDict: [Int: String] = [:]
         if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
             let pidFileURL = dir.appendingPathComponent("pid.txt")
@@ -48,7 +48,7 @@ final class CPU {
         return [:]
     }
 
-    private func writeToFile(name: String, text: String) {
+    static private func writeToFile(name: String, text: String) {
         if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
             let pidFileURL = dir.appendingPathComponent(name)
             do {
@@ -59,7 +59,7 @@ final class CPU {
         }
     }
 
-    private func executeCommand(_ command: String) throws -> String {
+    static private func executeCommand(_ command: String) throws -> String {
         let task = Process()
         let pipe = Pipe()
         task.standardOutput = pipe

@@ -15,9 +15,8 @@ class GradientButton: BorderedRoundedButton {
     }
 
     override func draw(_ dirtyRect: NSRect) {
-        super.draw(dirtyRect)
-
         self.drawGradient(in: dirtyRect)
+        super.draw(dirtyRect)
         self.layer?.backgroundColor = NSColor.white.cgColor
         self.layer?.masksToBounds = true
     }

@@ -14,7 +14,6 @@ public protocol MainScreenDelegate: AnyObject {
 final class MainScreenPresenter: MainScreenPresenterProtocol {
     var apps: [AppsListItem] = []
     var filteredApps: [AppsListItem] = []
-    private var cpuHelper: CPU = CPU()
     weak var delegate: MainScreenDelegate?
 
     init() {
@@ -23,19 +22,19 @@ final class MainScreenPresenter: MainScreenPresenterProtocol {
 
     func setUpAppsData() {
         self.apps = []
-
         let openApps = NSWorkspace.shared.runningApplications
-        let cpus = self.cpuHelper.getCpu()
-
+        let cpus = CPU.getCpu()
         for app in openApps where app.activationPolicy == .regular {
             let cpuCount = (Double(cpus[Int(app.processIdentifier)] ?? String.zero) ?? 0) / Double(ProcessInfo.processInfo.processorCount)
             self.apps.append(AppsListItem(app: App(name: app.localizedName ?? L10n.nameError.localize(),
-                                                    icon: app.icon ?? NSImage(),
-                                                    cpu: cpuCount.rounded(toPlaces: 1).description.appending(" % CPU"))))
+                                                   icon: app.icon ?? NSImage(),
+                                                   cpu: cpuCount.rounded(toPlaces: 1).description.appending(" % CPU"))))
         }
 
-        self.filteredApps = self.apps
-        delegate?.updateTableView()
+        if !self.filteredApps.contains(where: { $0.isSelected == true }) {
+            self.filteredApps = self.apps
+            delegate?.updateTableView()
+        }
     }
 
     func filterApps(text: String) {
