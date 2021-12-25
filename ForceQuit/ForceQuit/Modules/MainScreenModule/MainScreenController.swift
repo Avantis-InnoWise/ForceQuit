@@ -18,14 +18,15 @@ final class MainScreenController: NSViewController {
     @IBOutlet weak var terminateButton: BorderedRoundedButton!
     @IBOutlet weak var tableVeiw: NSTableView!
 
-    private var apps: [AppsListItem] = []
-    private var filteredApps: [AppsListItem] = []
-    private var cpuHelper: CPU = CPU()
-    private var filter = "" {
-        didSet {
-            self.filteredApps = filter.isEmpty ? self.apps : self.apps.filter { $0.app.name.lowercased().contains(self.filter) }
-            self.tableVeiw.reloadData()
-        }
+    private var presenter: MainScreenPresenterProtocol?
+
+    init(presenter: MainScreenPresenterProtocol) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     override func viewDidLoad() {
@@ -35,25 +36,16 @@ final class MainScreenController: NSViewController {
         self.tableVeiw.dataSource = self
         self.searchField.appearance = NSAppearance(named: .aqua)
         self.searchField.delegate = self
-
-        DispatchQueue.main.async { [weak self] in
-            let openApps = NSWorkspace.shared.runningApplications
-            let cpus = self?.cpuHelper.getCpu()
-
-            for app in openApps where app.activationPolicy == .regular {
-                let cpuCount = (Double(cpus?[Int(app.processIdentifier)] ?? String.zero) ?? 0) / Double(ProcessInfo.processInfo.processorCount)
-                self?.apps.append(AppsListItem(app: App(name: app.localizedName ?? L10n.nameError.localize(),
-                                                        icon: app.icon ?? NSImage(),
-                                                        cpu: cpuCount.rounded(toPlaces: 1).description.appending(" % CPU"))))
-            }
-
-            self?.filteredApps = self?.apps ?? []
-            self?.tableVeiw.reloadData()
-        }
+        self.presenter?.delegate = self
+        self.updateValues()
     }
 
-    @objc private func ternimateApp() {
-        NSApplication.shared.terminate(AnyObject.self)
+    private func updateValues() {
+        Timer.scheduledTimer(withTimeInterval: 3.0, repeats: true) { _ in
+            DispatchQueue.main.async { [weak self] in
+                self?.presenter?.setUpAppsData()
+            }
+        }
     }
 
     @IBAction func selectAllTapped(_ sender: Any) {
@@ -74,44 +66,25 @@ final class MainScreenController: NSViewController {
     }
 
     @IBAction func terminateTapped(_ sender: Any) {
-        let appsToTerminate = self.filteredApps.filter({ $0.isSelected == true })
-        let openApps = NSWorkspace.shared.runningApplications
-        for app in openApps where app.activationPolicy == .regular {
-            if appsToTerminate.contains(where: { $0.app.name == app.localizedName }) {
-                app.forceTerminate()
-            }
-        }
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
-            guard let self = self else { return }
-            self.apps = []
-            let openApps = NSWorkspace.shared.runningApplications
-            let cpus = self.cpuHelper.getCpu()
-            for app in openApps where app.activationPolicy == .regular {
-                let cpuCount = (Double(cpus[Int(app.processIdentifier)] ?? String.zero) ?? 0) / Double(ProcessInfo.processInfo.processorCount)
-                self.apps.append(AppsListItem(app: App(name: app.localizedName ?? L10n.nameError.localize(),
-                                                        icon: app.icon ?? NSImage(),
-                                                        cpu: cpuCount.rounded(toPlaces: 1).description.appending(" % CPU"))))
-            }
-            self.filteredApps = self.apps
-            self.tableVeiw.reloadData()
-        }
+        guard let presenter = self.presenter else { return }
+        presenter.forceQuitApp()
     }
 }
 
 extension MainScreenController: NSTableViewDataSource, NSTableViewDelegate {
-    func numberOfRows(in tableView: NSTableView) -> Int { self.filteredApps.count }
-    func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? { self.filteredApps[row] }
+    func numberOfRows(in tableView: NSTableView) -> Int { self.presenter?.filteredApps.count ?? 0 }
+    func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? { self.presenter?.filteredApps[row] }
     func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat { Constants.rowHeight }
 
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        guard var presenter = self.presenter else { return NSView() }
         let cellId = NSUserInterfaceItemIdentifier(Constants.tableCellId)
         if let cellView = tableView.makeView(withIdentifier: cellId, owner: self) as? AppViewCell {
-            cellView.configure(with: self.filteredApps[row]) { [weak self] in
-                self?.filteredApps[row].toggleSelection()
-                self?.terminateButton.isColored = self?.filteredApps.contains { $0.isSelected } ?? false
-                guard let indexInUnfilteredApps = self?.apps.firstIndex(where: { $0.app == self?.filteredApps[row].app }) else { return }
-                self?.apps[indexInUnfilteredApps].toggleSelection()
+            cellView.configure(with: presenter.filteredApps[row]) { [weak self] in
+                presenter.filteredApps[row].toggleSelection()
+                self?.terminateButton.isColored = presenter.filteredApps.contains { $0.isSelected } 
+                guard let indexInUnfilteredApps = presenter.apps.firstIndex(where: { $0.app == presenter.filteredApps[row].app }) else { return }
+                presenter.apps[indexInUnfilteredApps].toggleSelection()
             }
 
             return cellView
@@ -123,7 +96,16 @@ extension MainScreenController: NSTableViewDataSource, NSTableViewDelegate {
 
 extension MainScreenController: NSSearchFieldDelegate {
     func controlTextDidChange(_ obj: Notification) {
-        guard let object = obj.object as? NSTextField else { return }
-        self.filter = object.stringValue.trimmingCharacters(in: .whitespaces).lowercased()
+        guard
+            let object = obj.object as? NSTextField,
+            let presenter = self.presenter
+        else { return }
+        presenter.filterApps(text: object.stringValue.trimmingCharacters(in: .whitespaces).lowercased())
+    }
+}
+
+extension MainScreenController: MainScreenDelegate {
+    func updateTableView() {
+        self.tableVeiw.reloadData()
     }
 }

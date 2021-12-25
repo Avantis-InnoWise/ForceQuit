@@ -7,13 +7,13 @@
 
 import Cocoa
 
-struct App: Equatable {
+public struct App: Equatable {
     var name: String
     var icon: NSImage
     var cpu: String
 }
 
-struct AppsListItem {
+public struct AppsListItem {
     let app: App
     var isSelected: Bool = false
 
