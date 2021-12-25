@@ -52,12 +52,6 @@ final class MainScreenController: NSViewController {
         guard let presenter = self.presenter else { return }
         presenter.selectAllApps()
         self.terminateButton.isColored = presenter.filteredApps.contains { $0.isSelected }
-
-//        for index in 0..<self.filteredApps.count {
-//            if let cell = self.tableVeiw.tableColumns.first?.dataCell(forRow: index) as? AppViewCell {
-//                cell.updateCheckbox()
-//            }
-//        }
     }
 
     @IBAction func terminateTapped(_ sender: Any) {
@@ -81,7 +75,6 @@ extension MainScreenController: NSTableViewDataSource, NSTableViewDelegate {
                 guard let indexInUnfilteredApps = presenter.apps.firstIndex(where: { $0.app == presenter.filteredApps[row].app }) else { return }
                 presenter.apps[indexInUnfilteredApps].toggleSelection()
             }
-
             return cellView
         } else {
             return NSView()

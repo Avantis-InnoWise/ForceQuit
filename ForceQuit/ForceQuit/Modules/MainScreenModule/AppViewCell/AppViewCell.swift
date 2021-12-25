@@ -23,10 +23,6 @@ final class AppViewCell: NSTableCellView {
         self.checkboxHandler = checkboxHandler
     }
 
-    func updateCheckbox(state: Bool) {
-        self.checkbox.state = state ? .on : .off
-    }
-
     @IBAction private func checkboxWasTapped(_ sender: Checkbox) {
         self.checkboxHandler?()
     }

@@ -43,11 +43,19 @@ final class MainScreenPresenter: MainScreenPresenterProtocol {
     }
 
     func selectAllApps() {
-        self.filteredApps = self.filteredApps.map({
-            var app = $0
-            app.setSelected(true)
-            return app
-        })
+        if self.filteredApps.first(where: { $0.isSelected == false }) != nil {
+            self.filteredApps = self.filteredApps.map({
+                var app = $0
+                app.setSelected(true)
+                return app
+            })
+        } else {
+            self.filteredApps = self.filteredApps.map({
+                var app = $0
+                app.setSelected(false)
+                return app
+            })
+        }
         delegate?.updateTableView()
     }
 
