@@ -67,5 +67,13 @@ final class MainScreenPresenter: MainScreenPresenterProtocol {
                 app.forceTerminate()
             }
         }
+
+        self.filteredApps = self.filteredApps.map({
+            var app = $0
+            app.setSelected(false)
+            return app
+        })
+
+        delegate?.updateTableView()
     }
 }

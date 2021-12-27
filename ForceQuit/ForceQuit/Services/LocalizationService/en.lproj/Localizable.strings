@@ -9,7 +9,7 @@
 "searchPlaceholder" = "Type a file's name";
 "quit" = "Force quit";
 "select" = "Select all";
-"appTitle" = "Macquitter";
+"appTitle" = "QuitForce";
 "terminateAll" = "Terminate all";
 "openApp" = "Open ForceQuit";
 "nameError" = "Cant't get an application name";

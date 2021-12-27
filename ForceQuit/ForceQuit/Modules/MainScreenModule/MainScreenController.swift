@@ -41,7 +41,7 @@ final class MainScreenController: NSViewController {
     }
 
     private func updateValues() {
-        Timer.scheduledTimer(withTimeInterval: 3.0, repeats: true) { _ in
+        Timer.scheduledTimer(withTimeInterval: 2.5, repeats: true) { _ in
             DispatchQueue.main.async { [weak self] in
                 self?.presenter?.setUpAppsData()
             }

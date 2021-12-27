@@ -23,7 +23,9 @@ class AppDelegate: NSObject,
 
         let popoverController = PopoverViewController.loadFromNib()
         self.popover = Popover(with: MyPopoverConfiguration(), menuItems: [])
-        self.popover.prepare(with: NSImage(systemSymbolName: "xmark.circle", accessibilityDescription: "ForceQuit") ?? NSImage(),
+//        NSImage(named: "xmark.circle")
+//        NSImage(systemSymbolName: "xmark.circle", accessibilityDescription: "ForceQuit")
+        self.popover.prepare(with: NSImage(named: "close.circle") ?? NSImage(),
                              contentViewController: popoverController)
 
         self.rootRouter = RootRouter()
