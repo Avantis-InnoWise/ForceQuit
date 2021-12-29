@@ -11,7 +11,6 @@
 		04A487E82762039B00A5DB92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04A487E72762039B00A5DB92 /* Assets.xcassets */; };
 		04A487EB2762039B00A5DB92 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04A487E92762039B00A5DB92 /* MainMenu.xib */; };
 		04A487F82762052800A5DB92 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A487F72762052800A5DB92 /* Router.swift */; };
-		04A487FB2762055100A5DB92 /* AppPersistentVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A487FA2762055100A5DB92 /* AppPersistentVariables.swift */; };
 		04A488002762065B00A5DB92 /* LocalizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A487FF2762065B00A5DB92 /* LocalizationService.swift */; };
 		04A48803276206F400A5DB92 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04A48805276206F400A5DB92 /* Localizable.strings */; };
 		04A488072762074C00A5DB92 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A488062762074C00A5DB92 /* Localized.swift */; };
@@ -45,7 +44,6 @@
 		04A487EA2762039B00A5DB92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		04A487EC2762039B00A5DB92 /* ForceQuit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ForceQuit.entitlements; sourceTree = "<group>"; };
 		04A487F72762052800A5DB92 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		04A487FA2762055100A5DB92 /* AppPersistentVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPersistentVariables.swift; sourceTree = "<group>"; };
 		04A487FF2762065B00A5DB92 /* LocalizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationService.swift; sourceTree = "<group>"; };
 		04A48804276206F400A5DB92 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		04A488062762074C00A5DB92 /* Localized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localized.swift; sourceTree = "<group>"; };
@@ -157,7 +155,6 @@
 		04A487F62762050700A5DB92 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				04A487FA2762055100A5DB92 /* AppPersistentVariables.swift */,
 				04EF4CFB2776A95500FB1AD0 /* CpuHelper.swift */,
 			);
 			path = Utils;
@@ -415,7 +412,6 @@
 				04A488002762065B00A5DB92 /* LocalizationService.swift in Sources */,
 				04EF4CDB2773551300FB1AD0 /* GradientButton.swift in Sources */,
 				04EF4CCF2771DCA100FB1AD0 /* PopoverViewController.swift in Sources */,
-				04A487FB2762055100A5DB92 /* AppPersistentVariables.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
