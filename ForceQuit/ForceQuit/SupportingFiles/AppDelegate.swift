@@ -23,8 +23,6 @@ class AppDelegate: NSObject,
 
         let popoverController = PopoverViewController.loadFromNib()
         self.popover = Popover(with: MyPopoverConfiguration(), menuItems: [])
-        NSImage(named: "xmark.circle")
-//        NSImage(systemSymbolName: "xmark.circle", accessibilityDescription: "ForceQuit")
         self.popover.prepare(with: NSImage(named: "close.circle") ?? NSImage(),
                              contentViewController: popoverController)
 
