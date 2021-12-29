@@ -8,11 +8,11 @@
 import Cocoa
 
 final class SectionButton: NSButton {
-    enum Constant {
-        static let onButtonTitleColor = NSColor(named: "onButtonTitle")!
-        static let offButtonTitleColor = NSColor(named: "offButtonTitle")!
-        static let selectedButtonColor = NSColor(named: "selectedButton")!
-        static let unselectedButtonColor = NSColor(named: "unselectedButton")!
+    private enum Constant {
+        static let onButtonTitleColor = NSColor(named: "onButtonTitle") ?? .black
+        static let offButtonTitleColor = NSColor(named: "offButtonTitle") ?? .gray
+        static let selectedButtonColor = NSColor(named: "selectedButton")
+        static let unselectedButtonColor = NSColor(named: "unselectedButton")
     }
 
     override func draw(_ dirtyRect: NSRect) {
@@ -23,8 +23,8 @@ final class SectionButton: NSButton {
 
     private func setupUI() {
         self.layer?.backgroundColor = self.state == .on
-        ? Constant.selectedButtonColor.cgColor
-        : Constant.unselectedButtonColor.cgColor
+        ? Constant.selectedButtonColor?.cgColor
+        : Constant.unselectedButtonColor?.cgColor
 
         self.attributedTitle = NSAttributedString(
             string: self.attributedTitle.string,

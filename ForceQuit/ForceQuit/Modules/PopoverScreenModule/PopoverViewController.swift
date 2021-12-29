@@ -9,7 +9,7 @@ import Cocoa
 import SnapKit
 
 final class PopoverViewController: NSViewController {
-    enum Constants {
+    private enum Constants {
         static let terminateInsets: NSEdgeInsets = NSEdgeInsets(all: 5)
         static let cornerRadius: CGFloat = 5
         static let blackColor: NSColor = NSColor.black
@@ -30,12 +30,12 @@ final class PopoverViewController: NSViewController {
         self.boxView.borderColor = .clear
 
         let terminateAllButton = NSButton()
-        terminateAllButton.makeButton(with: Constants.blackColor, radius: Constants.cornerRadius, title: L10n.terminateAll.localize())
+        terminateAllButton.makeBaseButton(with: Constants.blackColor, radius: Constants.cornerRadius, title: L10n.terminateAll.localize())
         terminateAllButton.setAccessibilityIdentifier("terminate_button")
         terminateAllButton.action = #selector(ternimateAllApplications)
 
         let openAppButton = NSButton()
-        openAppButton.makeButton(with: Constants.blackColor, radius: Constants.cornerRadius, title: L10n.openApp.localize())
+        openAppButton.makeBaseButton(with: Constants.blackColor, radius: Constants.cornerRadius, title: L10n.openApp.localize())
         openAppButton.setAccessibilityIdentifier("open_button")
         openAppButton.action = #selector(openApplication)
 

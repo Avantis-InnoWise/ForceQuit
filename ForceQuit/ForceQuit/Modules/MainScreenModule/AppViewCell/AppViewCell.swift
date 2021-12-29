@@ -26,4 +26,14 @@ final class AppViewCell: NSTableCellView {
     @IBAction private func checkboxWasTapped(_ sender: Checkbox) {
         self.checkboxHandler?()
     }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+
+        self.checkbox.state = .off
+        self.appIconImageView.image = nil
+        self.cpuLabel.stringValue = ""
+        self.appNameLabel.stringValue = ""
+        self.checkboxHandler = nil
+    }
 }

@@ -8,7 +8,7 @@
 import Cocoa
 
 final class Checkbox: GradientButton {
-    enum Constants {
+    private enum Constants {
         static let checkImage = NSImage(named: "checkbox")
     }
 

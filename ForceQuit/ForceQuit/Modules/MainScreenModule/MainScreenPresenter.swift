@@ -7,14 +7,10 @@
 
 import Cocoa
 
-public protocol MainScreenDelegate: AnyObject {
-    func updateTableView()
-}
-
 final class MainScreenPresenter: MainScreenPresenterProtocol {
     var apps: [AppsListItem] = []
     var filteredApps: [AppsListItem] = []
-    weak var delegate: MainScreenDelegate?
+    weak var delegate: MainScreenViewProtocol?
 
     init() {
         self.setUpAppsData()

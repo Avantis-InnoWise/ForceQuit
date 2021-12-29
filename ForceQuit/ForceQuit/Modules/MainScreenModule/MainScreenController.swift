@@ -8,7 +8,7 @@
 import Cocoa
 
 final class MainScreenController: NSViewController {
-    enum Constants {
+    private enum Constants {
         static let rowHeight: CGFloat = 50
         static let tableCellId = "AppViewCell"
     }
@@ -92,7 +92,7 @@ extension MainScreenController: NSSearchFieldDelegate {
     }
 }
 
-extension MainScreenController: MainScreenDelegate {
+extension MainScreenController: MainScreenViewProtocol {
     func updateTableView() {
         self.tableVeiw.reloadData()
     }

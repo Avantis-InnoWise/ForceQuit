@@ -8,7 +8,7 @@
 import Cocoa
 
 class BorderedRoundedButton: NSButton {
-    enum Constant {
+    private enum Constant {
         static let titleColor = NSColor(named: "offButtonTitle")
         static let borderColor = NSColor(named: "buttonBorder")
         static let backgroundColor = NSColor(named: "roundedButtonBackground")
